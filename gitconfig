@@ -1,0 +1,13 @@
+[user]
+	name = Cary Goltermann
+	email = cary.goltermann@gmail.com
+	username = ultramann
+[core]
+	editor = vim
+[alias]
+    lg = log --graph --oneline --decorate --topo-order --date=short \
+             --pretty=format:'%h %ad | %s %d'
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
