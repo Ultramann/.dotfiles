@@ -34,7 +34,7 @@ let mapleader="\<Space>"
     set splitbelow
     set cursorline
     set hidden
-    set visualbell
+    set novisualbell
     set nocompatible
     set spelllang=en_us
     set backspace=indent,eol,start
