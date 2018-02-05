@@ -4,7 +4,7 @@ hi Special      ctermfg=63
 hi PreProc      ctermfg=134
 hi Identifier   ctermfg=6
 hi Constant     ctermfg=33
-hi Comment      ctermfg=246
+hi Comment      ctermfg=242
 hi Type         ctermfg=172
 hi Title        ctermfg=206
 
