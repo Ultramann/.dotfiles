@@ -21,7 +21,7 @@ let mapleader="\<Space>"
     set expandtab
     "Wildmenu
     set wildmenu
-    set wildignore+=.git
+    set wildignore+=.git,*.pyc
     set wildmode=longest:list,full
     "Bottom
     set noruler
