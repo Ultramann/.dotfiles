@@ -100,7 +100,9 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
     nnoremap <silent> <leader>s= :resize +5<CR>
     nnoremap <silent> <leader>s- :resize -5<CR>
 
-    "Project grepping
+    "Quickfix things
+    nnoremap <silent> <leader>qf :cwindow<CR>
+    nnoremap <silent> <leader>qc :cclose<CR>
     nnoremap <leader>pg :ProjectGrep 
 
     "Clipboard
@@ -170,4 +172,5 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
 
     function! ProjectGrep(search)
         execute 'vimgrep /' . a:search . '/gj ./**'
+        execute 'cwindow'
     endfunction
