@@ -91,33 +91,25 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
     nnoremap <silent> <leader>sa 1z=
 
     "Buffers
-    nnoremap <silent> <Tab>   :bnext<CR>
-    nnoremap <silent> <S-Tab> :bprevious<CR>
-    nnoremap <leader>b :ls<CR>:buffer<Space>
+    nnoremap <silent> <Tab>     :bnext<CR>
+    nnoremap <silent> <S-Tab>   :bprevious<CR>
     nnoremap <silent> <leader>x :bdelete<CR>
-
-    "Swaps
-    nnoremap    v    <C-V>
-    nnoremap  <C-V>    v
-    nnoremap    '      `
-    nnoremap    `      '
+    nnoremap <leader>b :ls<CR>:buffer<Space>
 
     "Splits
     nnoremap <silent> <leader>s= :resize +5<CR>
     nnoremap <silent> <leader>s- :resize -5<CR>
 
-    "Runners
-    nnoremap <silent> <leader>rp :! python %<CR>
-    nnoremap <silent> <leader>rh :! stack runghc %<CR>
-    nnoremap <silent> <leader>rt :! pdflatex -shell-escape %<CR>
+    "Project grepping
+    nnoremap <leader>pg :ProjectGrep 
 
     "Clipboard
-    nnoremap <silent> <leader>y :<C-u>exec 'normal ' . v:count1 . '"+yy'<CR>
+    nnoremap <silent> <leader>y :<C-u>execute 'normal ' . v:count1 . '"+yy'<CR>
     vnoremap <silent> <leader>y "+y
-    nnoremap <silent> <leader>p :<C-u>exec 'normal ' . v:count1 . '"+p'<CR>
-    nnoremap <silent> <leader>P :<C-u>exec 'normal ' . v:count1 . '"+P'<CR>
+    nnoremap <silent> <leader>p :<C-u>execute 'normal ' . v:count1 . '"+p'<CR>
+    nnoremap <silent> <leader>P :<C-u>execute 'normal ' . v:count1 . '"+P'<CR>
     vnoremap <silent> <leader>p "+p
-    nnoremap <silent> <leader>d :<C-u>exec 'normal ' . v:count1 . '"+dd'<CR>
+    nnoremap <silent> <leader>d :<C-u>execute 'normal ' . v:count1 . '"+dd'<CR>
     vnoremap <silent> <leader>d "+d
 
     "Fugitive
@@ -127,6 +119,17 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
     nnoremap <silent> <leader>gb :Gblame<CR>
     nnoremap <silent> <leader>gd :Gdiff<CR>
     nnoremap <silent> <leader>gp :Git push<CR>
+
+    "Swaps
+    nnoremap    v    <C-V>
+    nnoremap  <C-V>    v
+    nnoremap    '      `
+    nnoremap    `      '
+
+    "Runners
+    nnoremap <silent> <leader>rp :! python %<CR>
+    nnoremap <silent> <leader>rh :! stack runghc %<CR>
+    nnoremap <silent> <leader>rt :! pdflatex -shell-escape %<CR>
 
     "No arrow keys
     nnoremap   <up>   <nop>
@@ -141,6 +144,7 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
 "Other
     "Commands
     command -nargs=1 Vsb call VerticalSplitBuffer(<f-args>)
+    command -nargs=1 ProjectGrep call ProjectGrep(<f-args>)
 
     "Functions
     function! VerticalSplitBuffer(buffer)
@@ -162,4 +166,8 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
             set cursorline
             set cursorcolumn
         endif
+    endfunction
+
+    function! ProjectGrep(search)
+        execute 'vimgrep /' . a:search . '/gj ./**'
     endfunction
