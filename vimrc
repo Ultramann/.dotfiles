@@ -101,8 +101,7 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
     nnoremap <silent> <leader>s- :resize -5<CR>
 
     "Quickfix things
-    nnoremap <silent> <leader>qf :cwindow<CR>
-    nnoremap <silent> <leader>qq :cclose<CR>
+    nnoremap <silent> <leader>q :cwindow<CR>
     nnoremap <leader>pg :ProjectGrep 
 
     "Clipboard
