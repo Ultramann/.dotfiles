@@ -70,7 +70,7 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
     inoremap    jj    <ESC>
     vnoremap    vj    <ESC>
     nnoremap    ga    ggVG
-    nnoremap    gb   V`]
+    nnoremap    gb    V`]
     nnoremap    gl    :find <C-R><C-W>
     vnoremap    //    y/<C-R>"<CR>
     nnoremap <leader>Q :q!<CR>
@@ -145,14 +145,9 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
 
 "Other
     "Commands
-    command -nargs=1 Vsb call VerticalSplitBuffer(<f-args>)
     command -nargs=1 ProjectGrep call ProjectGrep(<f-args>)
 
     "Functions
-    function! VerticalSplitBuffer(buffer)
-        execute 'vert sb' a:buffer 
-    endfunction
-
     function! TrimWhitespace()
         let l:save_cursor = getpos('.')
         %s/\s\+$//e
