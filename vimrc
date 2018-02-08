@@ -70,6 +70,7 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
     inoremap    jj    <ESC>
     vnoremap    vj    <ESC>
     nnoremap    ga    ggVG
+    nnoremap    gb   V`]
     nnoremap    gl    :find <C-R><C-W>
     vnoremap    //    y/<C-R>"<CR>
     nnoremap <leader>Q :q!<CR>
@@ -78,7 +79,6 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
     vnoremap <leader>a :norm<Space>A
     nnoremap <leader>a :%norm<Space>A
     nnoremap <leader>u <C-R>
-    nnoremap <leader>v V`]
     nnoremap <silent> <leader>t :Explore<CR>
     nnoremap <silent> <leader>o :noh<CR>
     nnoremap <silent> <leader>w :call TrimWhitespace()<CR>
