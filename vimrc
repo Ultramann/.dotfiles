@@ -91,8 +91,8 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
     nnoremap <silent> <leader>sa 1z=
 
     "Buffers
-    nnoremap   <Tab>  :bnext<CR>
-    nnoremap <S-Tab>  :bprevious<CR>
+    nnoremap <silent> <Tab>   :bnext<CR>
+    nnoremap <silent> <S-Tab> :bprevious<CR>
     nnoremap <leader>b :ls<CR>:buffer<Space>
     nnoremap <silent> <leader>x :bdelete<CR>
 
