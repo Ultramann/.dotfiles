@@ -102,7 +102,7 @@ autocmd FileType haskell,cabal,yaml,sh,sql,tex,markdown
 
     "Quickfix things
     nnoremap <silent> <leader>qf :cwindow<CR>
-    nnoremap <silent> <leader>qc :cclose<CR>
+    nnoremap <silent> <leader>qq :cclose<CR>
     nnoremap <leader>pg :ProjectGrep 
 
     "Clipboard
