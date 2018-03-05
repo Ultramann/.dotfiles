@@ -167,6 +167,6 @@ let mapleader="\<Space>"
         endfunction
 
         function! ProjectGrep(search)
-            execute 'vimgrep /' . a:search . '/gj ./**'
+            execute 'vimgrep /' . a:search . '/j ./**'
             execute 'cwindow'
         endfunction
