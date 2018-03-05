@@ -50,3 +50,6 @@ hi PmenuSel     cterm=bold ctermbg=238 ctermfg=51
 hi TabLine      cterm=reverse ctermfg=31 ctermbg=none 
 hi TabLineSel   cterm=bold ctermfg=31 ctermbg=none
 hi TabLineFill  cterm=reverse ctermfg=31 ctermbg=none
+
+hi StartingWhitespace cterm=undercurl ctermfg=196
+match StartingWhitespace /^\s\+$/
