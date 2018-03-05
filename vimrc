@@ -103,16 +103,16 @@ let mapleader="\<Space>"
         nnoremap <silent> <leader>s- :resize -5<CR>
 
     "Quickfix things
-        nnoremap <silent> <leader>q :cwindow<CR>
+        nnoremap <silent> <leader>q :call QuickfixToggle()<CR>
         nnoremap <leader>pg :ProjectGrep 
 
     "Clipboard
-        nnoremap <silent> <leader>y :<C-u>execute 'normal ' . v:count1 . '"+yy'<CR>
+        nnoremap <silent> <leader>y :call Clipboard(v:count1, '"+yy')<CR>
+        nnoremap <silent> <leader>p :call Clipboard(v:count1, '"+p')<CR>
+        nnoremap <silent> <leader>P :call Clipboard(v:count1, '"+P')<CR>
+        nnoremap <silent> <leader>d :call Clipboard(v:count1, '"+dd')<CR>
         vnoremap <silent> <leader>y "+y
-        nnoremap <silent> <leader>p :<C-u>execute 'normal ' . v:count1 . '"+p'<CR>
-        nnoremap <silent> <leader>P :<C-u>execute 'normal ' . v:count1 . '"+P'<CR>
         vnoremap <silent> <leader>p "+p
-        nnoremap <silent> <leader>d :<C-u>execute 'normal ' . v:count1 . '"+dd'<CR>
         vnoremap <silent> <leader>d "+d
 
     "Fugitive
@@ -149,13 +149,13 @@ let mapleader="\<Space>"
         command -nargs=1 ProjectGrep call ProjectGrep(<f-args>)
 
     "Functions
-        function! TrimWhitespace()
+        function TrimWhitespace()
             let l:save_cursor = getpos('.')
             %s/\s\+$//e
             call setpos('.', l:save_cursor)
         endfunction
 
-        function! ToggleCursorLines()
+        function ToggleCursorLines()
             if &cursorline && &cursorcolumn
                 hi  clear CursorLine
                 set nocursorcolumn
@@ -166,7 +166,24 @@ let mapleader="\<Space>"
             endif
         endfunction
 
-        function! ProjectGrep(search)
+        function ProjectGrep(search)
             execute 'vimgrep /' . a:search . '/j ./**'
-            execute 'cwindow'
+            execute 'call QuickfixToggle()'
+        endfunction
+
+        function Clipboard(count, command)
+            execute 'normal ' . a:count . a:command
+        endfunction
+
+        let g:quickfix_is_open = 0
+        function QuickfixToggle()
+            if g:quickfix_is_open
+                cclose
+                let g:quickfix_is_open = 0
+                execute g:quickfix_return_to_window . "wincmd w"
+            else
+                let g:quickfix_return_to_window = winnr()
+                copen
+                let g:quickfix_is_open = 1
+            endif
         endfunction
