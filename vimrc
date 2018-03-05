@@ -93,8 +93,8 @@ let mapleader="\<Space>"
         nnoremap <silent> <leader>sa 1z=
 
     "Buffers
-        nnoremap <silent> <Tab>     :bnext<CR>
-        nnoremap <silent> <S-Tab>   :bprevious<CR>
+        nnoremap <silent> <Tab>     :b#<CR>
+        nnoremap <silent> <S-Tab>   :bnext<CR>
         nnoremap <silent> <leader>x :bdelete<CR>
         nnoremap <leader>b :ls<CR>:buffer<Space>
 
